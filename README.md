@@ -1,6 +1,7 @@
 # Groupmaker2 (Front end only no functions yet)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.5.
+Go to `foras00.github.io/groupmaker` to see the web page
 
 ## Development server
 
