@@ -1,0 +1,68 @@
+<mat-grid-list cols="1" rowHeight="12em" ngSwitch="">
+  <mat-grid-tile>
+    <form action="">
+      <mat-form-field class="mattextarea" appearance="outline">
+        <mat-label>Enter Members</mat-label>
+        <textarea matInput placeholder="Enter member names"></textarea>
+      </mat-form-field>
+    </form>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <form action="">
+      <mat-form-field class="matinput" appearance="outline">
+        <mat-label>Group Amount</mat-label>
+        <input
+          matInput
+          placeholder="Group Amount"
+          type="number"
+          min="0"
+          max="100"
+        />
+      </mat-form-field>
+    </form>
+  </mat-grid-tile>
+
+  <mat-grid-tile class="grouping-tile">
+    <mat-label>Grouping Type &nbsp;</mat-label>
+    <mat-button-toggle-group name="Grouping type">
+      <mat-button-toggle value="A-Z">A-Z</mat-button-toggle>
+      <mat-button-toggle value="1-100">1-100</mat-button-toggle>
+    </mat-button-toggle-group>
+  </mat-grid-tile>
+  <mat-grid-tile class="generate-tile">
+    <button mat-flat-button color="accent" class="gen-btn">Generate</button>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<div class="result">
+  <h1>Result</h1>
+  <mat-tree
+    [dataSource]="nestedTreeDataSource"
+    [treeControl]="nestedTreeControl"
+  >
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+      {{ node.name }}
+    </mat-tree-node>
+
+    <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+      <div class="mat-tree-node">
+        <button mat-icon-button matTreeNodeToggle>
+          <mat-icon>
+            {{
+              nestedTreeControl.isExpanded(node)
+                ? "chevron_right"
+                : "expand_more"
+            }}
+          </mat-icon>
+        </button>
+        {{ node.name }}
+      </div>
+      <div
+        class="nested-node"
+        [class.tree-invisible]="nestedTreeControl.isExpanded(node)"
+      >
+        <ng-container matTreeNodeOutlet></ng-container>
+      </div>
+    </mat-nested-tree-node>
+  </mat-tree>
+</div>
