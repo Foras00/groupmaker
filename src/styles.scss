@@ -27,20 +27,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
     width: 300px;
     height: 100px;
 }
+.result{
+    height: 700px;
+    border: 2px solid #ff4081;
+    border-radius: 6px;
+    background-color: white;
+    z-index: 10;    
+    padding: 10px;
+}
 //mobile view
 @media screen and (max-width: 900px) {
 
     .result{
         width: 90%;
-        height: 700px;
-        z-index: 10;
         margin-left: 1.5%;
-    
-        border: 2px solid #ff4081;
-        border-radius: 6px;
-        background-color: white;
-    
-        padding: 10px;
     }
 }
 
@@ -53,14 +53,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
         display: block;
         position: absolute;
         float: left;
-        z-index: 10;
         top: 80px;
         left: 10px;
-    
-        border: 2px solid #ff4081;
-        border-radius: 6px;
-        background-color: white;
-    
-        padding: 10px;
+
     }
 }
